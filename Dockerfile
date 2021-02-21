@@ -1,7 +1,7 @@
 FROM debian:buster-slim AS builder
 RUN apt-get update && apt-get install -y build-essential git libssl-dev libsasl2-dev libtimedate-perl autoconf
 WORKDIR /root
-RUN git clone --depth 1 --branch v1.3.3 https://git.code.sf.net/p/isync/isync
+RUN git clone --depth 1 --branch v1.4.0 https://git.code.sf.net/p/isync/isync
 WORKDIR /root/isync
 RUN ./autogen.sh
 RUN ./configure
