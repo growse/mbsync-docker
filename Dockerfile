@@ -7,8 +7,9 @@ RUN ./autogen.sh
 RUN ./configure
 RUN make && make install
 
-FROM debian:buster-slim
-RUN apt-get update && apt-get install -y libsasl2-2 libsasl2-modules-kdexoauth2 libssl1.1
+FROM python:slim
+RUN apt-get update && apt-get install -y ca-certificates libsasl2-2 libsasl2-modules-kdexoauth2 libssl1.1
 RUN rm -rf /var/lib/apt/lists/*
 COPY --from=builder /usr/local/bin/mbsync /usr/local/bin/mbsync
+COPY oauth2.py /usr/local/bin/oauth2.py
 ENTRYPOINT /usr/local/bin/mbsync
