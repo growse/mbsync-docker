@@ -1,3 +1,4 @@
+---
 name: Build, package and publish
 "on":
   push:
