@@ -1,6 +1,6 @@
 FROM debian:bookworm-20230904-slim AS builder
 
-RUN --mount=type=cache,target=/var/cache/apt \
+RUN --mount=type=cache,sharing=locked,target=/var/cache/apt \
     DEBIAN_FRONTEND=noninteractive\
     apt-get update && \
     apt-get install -y build-essential git libssl-dev libsasl2-dev libtimedate-perl autoconf
@@ -13,7 +13,7 @@ WORKDIR /root/isync
 RUN ./autogen.sh && ./configure && make && make install
 
 FROM python:3.11.5-slim-bookworm
-RUN --mount=type=cache,target=/var/cache/apt \
+RUN --mount=type=cache,sharing=locked,target=/var/cache/apt \
     DEBIAN_FRONTEND=noninteractive\
     apt-get update && \
     apt-get install -y ca-certificates libsasl2-2 libsasl2-modules-kdexoauth2 libssl3
