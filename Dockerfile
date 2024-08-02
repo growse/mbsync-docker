@@ -7,7 +7,7 @@ RUN --mount=type=cache,sharing=locked,target=/var/cache/apt \
 WORKDIR /root
 
 # renovate: datasource=git-tags depName=https://git.code.sf.net/p/isync/isync
-ENV ISYNC_VERSION=v1.4.4
+ENV ISYNC_VERSION=v1.5.0
 RUN git clone --depth 1 --branch ${ISYNC_VERSION} https://git.code.sf.net/p/isync/isync
 WORKDIR /root/isync
 RUN ./autogen.sh && ./configure && make && make install
