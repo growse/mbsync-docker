@@ -5,5 +5,16 @@
     "github>growse/renovate-template:automerge-minor-and-patch",
     "github>growse/renovate-template:automerge-github-actions",
     "github>growse/renovate-template:docker-env"
+  ],
+  "packageRules": [
+    {
+      "matchDatasources": [
+        "docker"
+      ],
+      "matchPackageNames": [
+        "debian"
+      ],
+      "versioningStrategy": "loose"
+    }
   ]
 }
