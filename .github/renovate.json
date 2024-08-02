@@ -14,7 +14,7 @@
       "matchPackageNames": [
         "debian"
       ],
-      "versioningStrategy": "loose"
+      "versioning": "loose"
     }
   ]
 }
