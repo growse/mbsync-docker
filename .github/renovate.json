@@ -14,7 +14,7 @@
       "matchPackageNames": [
         "debian"
       ],
-      "versioning": "loose"
+      "versioning": "regex:^bookworm-(?<major>\\d+)-slim$"
     }
   ]
 }
