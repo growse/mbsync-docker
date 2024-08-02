@@ -3,7 +3,7 @@ FROM debian:bookworm-20240722-slim AS builder
 RUN --mount=type=cache,sharing=locked,target=/var/cache/apt \
     DEBIAN_FRONTEND=noninteractive\
     apt-get update && \
-    apt-get install --no-install-recommends -y build-essential git libssl-dev libsasl2-dev libtimedate-perl autoconf ca-certificates
+    apt-get install --no-install-recommends -y build-essential git libssl-dev libsasl2-dev libtimedate-perl automake autoconf ca-certificates
 WORKDIR /root
 
 # renovate: datasource=git-tags depName=https://git.code.sf.net/p/isync/isync
