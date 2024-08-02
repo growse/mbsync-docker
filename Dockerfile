@@ -10,7 +10,7 @@ WORKDIR /root
 ENV ISYNC_VERSION=v1.5.0
 RUN git clone --depth 1 --branch ${ISYNC_VERSION} https://git.code.sf.net/p/isync/isync
 WORKDIR /root/isync
-RUN ./autogen.sh && ./configure && make && make install
+RUN ./version.sh && ./autogen.sh && ./configure && make && make install
 
 FROM python:3.12.4-slim-bookworm
 RUN --mount=type=cache,sharing=locked,target=/var/cache/apt \
