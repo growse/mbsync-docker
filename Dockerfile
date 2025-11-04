@@ -1,4 +1,4 @@
-FROM debian:bookworm-20250929-slim AS builder
+FROM debian:bookworm-20251103-slim AS builder
 
 RUN --mount=type=cache,sharing=locked,target=/var/cache/apt \
     DEBIAN_FRONTEND=noninteractive\
