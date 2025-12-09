@@ -12,7 +12,7 @@ RUN git clone --depth 1 --branch ${ISYNC_VERSION} https://git.code.sf.net/p/isyn
 WORKDIR /root/isync
 RUN ./version.sh && ./autogen.sh && ./configure && make && make install
 
-FROM python:3.14.0-slim-bookworm
+FROM python:3.14.2-slim-bookworm
 RUN --mount=type=cache,sharing=locked,target=/var/cache/apt \
     DEBIAN_FRONTEND=noninteractive\
     apt-get update && \
